@@ -44,4 +44,5 @@ end
 service 'consul' do
   supports status: true, restart: true
   action [:enable, :start]
+  subscribes :restart, "#{node[:consul][:config_dir]}/default.json", :immediately
 end
