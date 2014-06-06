@@ -30,3 +30,9 @@ describe command "consul members" do
   it { should return_stdout /\brole=consul\b/ }
   it { should return_stdout /\bbootstrap=1\b/ }
 end
+
+describe "config file attributes" do
+    context command "consul members" do
+        it { should return_stdout /\bdc=FortMeade\b/ }
+    end
+end
