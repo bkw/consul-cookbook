@@ -23,6 +23,16 @@ suites:
   - name: default
     run_list:
       - recipe[consul::default]
+  - name: server
+    run_list:
+      - recipe[consul::default]
+    attributes:
+        consul:
+            service_mode: server
+            servers:
+                - 127.0.0.1
+                - 127.0.0.2
+                - 127.0.0.3
   - name: ui
     run_list:
       - recipe[consul::default]
