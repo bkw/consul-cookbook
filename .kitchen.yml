@@ -23,6 +23,12 @@ suites:
   - name: default
     run_list:
       - recipe[consul::default]
+  - name: source
+    run_list:
+      - recipe[consul::default]
+    attributes:
+        consul:
+            install_method: source
   - name: server
     run_list:
       - recipe[consul::default]
