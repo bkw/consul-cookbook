@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe command('which consul') do
   it { should return_exit_status 0 }
-  its(:stdout) { should match '/usr/local/bin/consul' }
+  it { should return_stdout /\/usr\/local\/bin\/consul/ }
 end
 
 describe service('consul') do
