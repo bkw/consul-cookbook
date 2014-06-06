@@ -51,7 +51,7 @@ file "#{node[:consul][:config_dir]}/default.json" do
 end
 
 service 'consul' do
-  supports status: true, restart: true
+  supports status: true, restart: true, reload: true
   action [:enable, :start]
   subscribes :restart, "file[#{node[:consul][:config_dir]}/default.json]", :immediately
   subscribes :restart, "template[/etc/init.d/consul]", :immediately
