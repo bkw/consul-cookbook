@@ -33,7 +33,7 @@ template '/etc/init.d/consul' do
   )
 end
 
-file node[:consul][:config_dir] + "/default.json" do
+file "#{node[:consul][:config_dir]}/default.json" do
   user "root"
   group "root"
   mode "0600"
