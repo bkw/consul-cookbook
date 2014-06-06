@@ -23,3 +23,10 @@ end
     it { should be_listening }
   end
 end
+
+describe command "consul members" do
+  it { should return_exit_status 0 }
+  it { should return_stdout /\balive\b/ }
+  it { should return_stdout /\brole=consul\b/ }
+  it { should return_stdout /\bbootstrap=1\b/ }
+end
